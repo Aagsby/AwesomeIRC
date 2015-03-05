@@ -1,0 +1,118 @@
+div, html, body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Quicksand', sans-serif;
+}
+
+#messages{
+	padding: 10px;
+	float: left;
+	height: 90%;
+	width: 80%;
+	overflow-y: scroll;
+}
+
+#users{
+	font-size: 90%;
+	padding: 10px;
+	height: 90%;
+	float: left;
+	width: 20%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#login, #waiting{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	transition: top 400ms;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: white;
+}
+
+#waiting{
+	background: #333
+}
+
+#verticalBar{
+	margin: auto;
+	margin-top: 0px;
+	padding: 0px 2.5%;
+	padding-top: 12%;
+	height: 100%;
+	width: 35%;
+	background: #333;
+}
+
+#nameInput{
+	height: 20%;
+	width: 100%;
+}
+
+#nameInput h3{
+	color: #7FE42E;
+}
+
+#nameInput input{
+	padding: 0.3em;
+	font-size: 1.3em;
+	text-align: center;
+	width: 100%;
+}
+
+#submitName{
+	width: 100%;
+	height: 50px;
+	padding: 1em;
+	cursor: pointer;
+	background: #7FE42E;
+}
+
+#chatInput{
+	padding: 0;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+
+#Message{
+	width: 70%;
+}
+
+#chat{
+}
+
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  background-color: #7FE42E;
+
+  margin: 23% auto;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
