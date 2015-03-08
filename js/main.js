@@ -18,14 +18,17 @@ $('#submitName').on('click',function(){
 	var name = $('#Nickname').val().toString();
 	var url = 'chat.freenode.org';
 	var opts = {
-		    channels: ['#schnitzelwirt'],
-		};
+		channels: ['#schnitzelwirt'],
+	};
 
 	if(name.length > 0){
 		client = new irc.Client(url, name, opts);
 		addRegistrationHandler();
 
 		$('#login').css('top','-100%');
+		setTimeout(function(){
+			$('#login').remove();
+		},500);
 	}	
 });
 
@@ -36,18 +39,19 @@ function addRegistrationHandler(){
 			console.log(e);
 		});
 
-		$('#chatInput').on('submit',function(e){
-			e.preventDefault();
-			sendMessage();
+		$('#Message').on('keypress',function(e){
+			if(e.which == 13){
+				sendMessage()
+			} 
 		});
-
+		$('#sendMessage').on('click',function(){
+			sendMessage()
+		});
 		addMessageHandler();
 		addNamesHandler();
 
 	});
 }
-
-
 
 function addNamesHandler(){
 
@@ -75,11 +79,18 @@ function addNamesHandler(){
 
 	client.once('names#schnitzelwirt',function(nicks){
 		users = [];
-			for(var key in nicks){
-				users.push(key);
-			}
-			$('#waiting').css('top','-100%');
-			drawNamesList();
+		for(var key in nicks){
+			users.push(key);
+		}
+		drawNamesList();
+
+		//This happens here, because after registering it takes
+		//a while untill the names are loaded.
+		$('#waiting').css('top','-100%');
+		setTimeout(function(){
+			$('#waiting').remove();
+		},500);
+
 	});
 }
 

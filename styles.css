@@ -81,12 +81,27 @@ div, html, body{
 }
 
 #Message{
-	width: 70%;
+	resize: none;
+	position: fixed;
+	bottom: 1%;
+	left: 1%;
+	width: 79%;
+	height: 8%;
+	min-height: 30px;
+	background: rgba(255,255,255,0.7);
 }
 
-#chat{
+#sendMessage{
+	position: fixed;
+	bottom: 1%;
+	left: 80%;
+	width: 19%;
+	height: 8%;
+	background: #7FE42E;
+	text-align: center;
+	padding: 10px;
+	min-height: 30px;
 }
-
 
 .spinner {
   width: 50px;
