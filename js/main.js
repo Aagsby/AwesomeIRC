@@ -103,10 +103,6 @@ function sendMessage(){
 	}	
 }
 
-function escapeHTML() {
-    return this.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
 function drawMessageList(){
 	$('#messages').empty();
 	messages.forEach(function(message){
