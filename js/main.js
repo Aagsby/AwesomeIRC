@@ -47,17 +47,13 @@ function addRegistrationHandler(){
 	});
 }
 
-function drawNamesList(){
-	$('#users').empty();
-	users.forEach(function(u){
-		$('#users').append('<p class="nickname">' + u + '</p>');
-	});
-}
+
 
 function addNamesHandler(){
 
 	client.on('join',function(channel,name){
-		messages.push(new Message('Client','You',name + ' has entered the channel ' + channel + '.'));
+		var joinMessage = name + ' has entered the channel ' + channel + '.';
+		messages.push(new Message('Client','You',joinMessage));
 		drawMessageList();
 
 		users.push(name);
@@ -65,7 +61,8 @@ function addNamesHandler(){
 	});
 
 	client.on('quit',function(name,reason,channel){
-		messages.push(new Message('Client','You',name + ' has left the channel ' + channel + '.'));
+		var quitMessage = name + ' has left the channel ' + channel + '.';
+		messages.push(new Message('Client','You',quitMessage));
 		drawMessageList();
 
 		var index = users.indexOf(name);
@@ -101,6 +98,13 @@ function sendMessage(){
 		drawMessageList();
 		$('#Message').val('');
 	}	
+}
+
+function drawNamesList(){
+	$('#users').empty();
+	users.forEach(function(u){
+		$('#users').append('<p class="nickname">' + u + '</p>');
+	});
 }
 
 function drawMessageList(){
